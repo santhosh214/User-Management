@@ -15,9 +15,9 @@ const Router = () => {
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/home" element={<HomePage />}>
         <Route path="list" element={<UserListPage />} />
-        <Route path="*" element={<Navigate to="/list" replace />} />
+        <Route exact path="*" element={<Navigate to="/list" replace />} />
         <Route path="add" element={<AddUserPage />} />
-        <Route path="edit" element={<EditUserPage />} />
+        <Route path="edit/:id" element={<EditUserPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>

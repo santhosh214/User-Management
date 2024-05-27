@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const roleEnum = ["ADMIN", "USER", "VIEWER"];
+
 const UserSchema = new mongoose.Schema(
   {
     firstName: {
@@ -10,12 +12,16 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [true, "Lastname is required"],
     },
-    phone: {
-      type: Number,
-      required: [true, "Phone is required"],
-    },
     email: {
       type: String,
+      required: [true, "Email id required"],
+    },
+    phone: {
+      type: Number,
+    },
+    userRole: {
+      type: String,
+      enum: roleEnum,
       required: [true, "Email is required"],
     },
   },
